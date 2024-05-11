@@ -1,4 +1,4 @@
-package br.com.descompila.api.medico;
+package br.com.descompila.api.domain.medico;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

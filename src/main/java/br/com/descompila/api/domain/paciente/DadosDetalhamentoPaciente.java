@@ -1,4 +1,4 @@
-package br.com.descompila.api.paciente;
+package br.com.descompila.api.domain.paciente;
 
 public record DadosDetalhamentoPaciente(
         Long id,

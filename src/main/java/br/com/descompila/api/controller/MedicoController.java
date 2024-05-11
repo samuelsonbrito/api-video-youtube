@@ -1,9 +1,7 @@
 package br.com.descompila.api.controller;
 
-import br.com.descompila.api.medico.*;
-import br.com.descompila.api.paciente.DadosDetalhamentoPaciente;
+import br.com.descompila.api.domain.medico.*;
 import jakarta.validation.Valid;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

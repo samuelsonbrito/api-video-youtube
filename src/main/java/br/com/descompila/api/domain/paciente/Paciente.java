@@ -1,6 +1,6 @@
-package br.com.descompila.api.paciente;
+package br.com.descompila.api.domain.paciente;
 
-import br.com.descompila.api.endereco.Endereco;
+import br.com.descompila.api.domain.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

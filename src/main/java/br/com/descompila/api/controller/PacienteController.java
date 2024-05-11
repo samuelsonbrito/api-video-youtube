@@ -1,6 +1,6 @@
 package br.com.descompila.api.controller;
 
-import br.com.descompila.api.paciente.*;
+import br.com.descompila.api.domain.paciente.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

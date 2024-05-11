@@ -1,4 +1,4 @@
-package br.com.descompila.api.endereco;
+package br.com.descompila.api.domain.endereco;
 
 import jakarta.persistence.Embeddable;
 import lombok.EqualsAndHashCode;

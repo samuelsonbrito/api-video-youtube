@@ -1,6 +1,6 @@
-package br.com.descompila.api.medico;
+package br.com.descompila.api.domain.medico;
 
-import br.com.descompila.api.endereco.Endereco;
+import br.com.descompila.api.domain.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

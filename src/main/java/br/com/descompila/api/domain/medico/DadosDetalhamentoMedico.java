@@ -1,4 +1,4 @@
-package br.com.descompila.api.medico;
+package br.com.descompila.api.domain.medico;
 
 public record DadosDetalhamentoMedico(
         Long id,
