@@ -1,4 +1,4 @@
-package br.com.descompila.api.infra;
+package br.com.descompila.api.infra.exception;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
