@@ -2,6 +2,7 @@ package br.com.descompila.api.controller;
 
 import br.com.descompila.api.domain.usuario.DadosAutenticacao;
 import br.com.descompila.api.domain.usuario.Usuario;
+import br.com.descompila.api.infra.secutiry.DadosTokenJWT;
 import br.com.descompila.api.infra.secutiry.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +28,7 @@ public class AutenticacaoController {
         var authenticationToken = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
         var authentication = manager.authenticate(authenticationToken);
         var tokenJwt = tokenService.gerarToken((Usuario) authentication.getPrincipal());
-        return ResponseEntity.ok(tokenJwt);
+        return ResponseEntity.ok(new DadosTokenJWT(tokenJwt));
     }
 
 }
