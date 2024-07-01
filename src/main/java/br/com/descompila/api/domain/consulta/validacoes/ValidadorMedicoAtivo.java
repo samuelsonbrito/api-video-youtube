@@ -3,9 +3,13 @@ package br.com.descompila.api.domain.consulta.validacoes;
 import br.com.descompila.api.domain.ValidacaoException;
 import br.com.descompila.api.domain.consulta.DadosAgendamentoConsulta;
 import br.com.descompila.api.domain.medico.MedicoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class ValidadorMedicoAtivo {
+@Component
+public class ValidadorMedicoAtivo implements ValidadorAgendamentoDeConsulta{
 
+    @Autowired
     private MedicoRepository repository;
 
     public void validar(DadosAgendamentoConsulta dados){
