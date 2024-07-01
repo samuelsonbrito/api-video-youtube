@@ -23,6 +23,7 @@ public class Paciente {
     private String email;
     private String cpf;
     private String telefone;
+    private Boolean ativo;
 
     @Embedded
     private Endereco endereco;
@@ -51,5 +52,9 @@ public class Paciente {
         if(dados.cpf() != null) {
             this.cpf = dados.cpf();
         }
+    }
+
+    public void excluir() {
+        this.ativo = false;
     }
 }
