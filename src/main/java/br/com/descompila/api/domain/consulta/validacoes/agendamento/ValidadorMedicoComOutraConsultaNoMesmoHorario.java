@@ -1,4 +1,4 @@
-package br.com.descompila.api.domain.consulta.validacoes;
+package br.com.descompila.api.domain.consulta.validacoes.agendamento;
 
 import br.com.descompila.api.domain.consulta.ConsultaRepository;
 import br.com.descompila.api.domain.consulta.DadosAgendamentoConsulta;

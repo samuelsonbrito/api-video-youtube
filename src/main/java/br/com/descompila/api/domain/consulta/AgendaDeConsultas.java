@@ -1,7 +1,8 @@
 package br.com.descompila.api.domain.consulta;
 
 import br.com.descompila.api.domain.ValidacaoException;
-import br.com.descompila.api.domain.consulta.validacoes.ValidadorAgendamentoDeConsulta;
+import br.com.descompila.api.domain.consulta.validacoes.agendamento.ValidadorAgendamentoDeConsulta;
+import br.com.descompila.api.domain.consulta.validacoes.cancelamento.ValidadorCancelamentoDeConsulta;
 import br.com.descompila.api.domain.medico.Medico;
 import br.com.descompila.api.domain.medico.MedicoRepository;
 import br.com.descompila.api.domain.paciente.PacienteRepository;
@@ -21,6 +22,8 @@ public class AgendaDeConsultas {
     private PacienteRepository pacienteRepository;
     @Autowired
     private List<ValidadorAgendamentoDeConsulta> validadores;
+    @Autowired
+    private List<ValidadorCancelamentoDeConsulta> validadoresCancelamento;
 
     public DadosDetalhamentoConsulta agendar(DadosAgendamentoConsulta dados){
 
@@ -35,6 +38,10 @@ public class AgendaDeConsultas {
         validadores.forEach(v -> v.validar(dados));
 
         var medico = escolherMedico(dados);
+
+        if(medico == null){
+            throw new ValidacaoException("Não existe médico disponível nessa data");
+        }
         var paciente = pacienteRepository.findById(dados.idPaciente());
         var consulta = new Consulta(null, medico, paciente.orElse(null), dados.data(), null);
         consultaRepository.save(consulta);
@@ -58,6 +65,8 @@ public class AgendaDeConsultas {
         if (!consultaRepository.existsById(dados.idConsulta())) {
             throw new ValidacaoException("Id da consulta informado não existe!");
         }
+
+        validadoresCancelamento.forEach(v -> v.validar(dados));
 
         var consulta = consultaRepository.getReferenceById(dados.idConsulta());
         consulta.cancelar(dados.motivo());
